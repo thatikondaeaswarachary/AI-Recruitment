@@ -1,0 +1,25 @@
+# Environment variables / virtual environments
+venv/
+venv_temp/
+env/
+.env
+
+# IDE / Editor configuration
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python / Pycache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database
+*.db
+*.sqlite3
+
+# Node / Frontend build artifacts (if any)
+node_modules/
+dist/
+build/
