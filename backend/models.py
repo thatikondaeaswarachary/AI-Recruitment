@@ -25,9 +25,20 @@ class MatchScore(Base):
     id = Column(Integer, primary_key=True, index=True)
     candidate_id = Column(Integer, ForeignKey("candidates.id"))
     job_id = Column(Integer, ForeignKey("jobs.id"))
-    score = Column(Float)
-    skill_gaps = Column(JSON)
+    score = Column(Float)  # Kept for backward compatibility (overall_hiring_score)
+    overall_hiring_score = Column(Float)
+    skill_match_percentage = Column(Float)
+    experience_score = Column(Float)
+    education_score = Column(Float)
+    skill_gap_percentage = Column(Float)
+    
+    matched_skills = Column(JSON)
+    missing_skills = Column(JSON)
+    additional_skills = Column(JSON)
+    skill_gaps = Column(JSON)  # Same as missing_skills for backward compatibility
+    recommendations = Column(JSON)
     interview_questions = Column(JSON)
     
     candidate = relationship("Candidate")
     job = relationship("JobDescription")
+

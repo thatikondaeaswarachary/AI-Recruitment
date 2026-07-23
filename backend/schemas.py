@@ -35,9 +35,19 @@ class JobDescription(JobDescriptionBase):
 class MatchScoreBase(BaseModel):
     candidate_id: int
     job_id: int
-    score: float
-    skill_gaps: List[str]
-    interview_questions: List[str]
+    score: float = 0.0
+    overall_hiring_score: Optional[float] = 0.0
+    skill_match_percentage: Optional[float] = 0.0
+    experience_score: Optional[float] = 0.0
+    education_score: Optional[float] = 0.0
+    skill_gap_percentage: Optional[float] = 0.0
+    
+    matched_skills: Optional[List[str]] = []
+    missing_skills: Optional[List[str]] = []
+    additional_skills: Optional[List[str]] = []
+    skill_gaps: Optional[List[str]] = []
+    recommendations: Optional[List[str]] = []
+    interview_questions: Optional[List[str]] = []
 
 class MatchScoreCreate(MatchScoreBase):
     pass
